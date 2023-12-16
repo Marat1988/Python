@@ -48,10 +48,10 @@ class Car:
         return self.__price
 
     # Сохранение объекта в файл. Сериализация и десериализация
-    @staticmethod
-    def serialize(car):
+
+    def serialize(self):
         with open("data.pickle", "wb") as f:
-            pickle.dump(car, f)
+            pickle.dump(self, f)
 
     @staticmethod
     def deserialize():
@@ -67,5 +67,6 @@ class Car:
 
 
 car1 = Car("Mercedes-Benz C-Класс AMG 43 AMG", 2016, "Mersenes", 3, "Серый", 4000000)
-Car.serialize(car1)
-Car.deserialize()
+car1.serialize()
+car1.deserialize()
+
