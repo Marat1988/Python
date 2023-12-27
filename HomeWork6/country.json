@@ -1,0 +1,267 @@
+{
+    "Россия": {
+        "flag": "images/Россия.png",
+        "is_growth": false,
+        "population": 146171015
+    },
+    "Германия": {
+        "flag": "images/Германия.png",
+        "is_growth": true,
+        "population": 83155031
+    },
+    "Великобритания": {
+        "flag": "images/Великобритания.png",
+        "is_growth": true,
+        "population": 67081000
+    },
+    "Франция": {
+        "flag": "images/Франция.png",
+        "is_growth": true,
+        "population": 64844037
+    },
+    "Италия": {
+        "flag": "images/Италия.png",
+        "is_growth": false,
+        "population": 59257566
+    },
+    "Испания": {
+        "flag": "images/Испания.png",
+        "is_growth": true,
+        "population": 47363419
+    },
+    "Украина": {
+        "flag": "images/Украина.png",
+        "is_growth": false,
+        "population": 41418717
+    },
+    "Польша": {
+        "flag": "images/Польша.png",
+        "is_growth": false,
+        "population": 37899070
+    },
+    "Румыния": {
+        "flag": "images/Румыния.png",
+        "is_growth": false,
+        "population": 19257520
+    },
+    "Нидерланды": {
+        "flag": "images/Нидерланды.png",
+        "is_growth": true,
+        "population": 17441500
+    },
+    "Бельгия": {
+        "flag": "images/Бельгия.png",
+        "is_growth": true,
+        "population": 11544241
+    },
+    "Греция": {
+        "flag": "images/Греция.png",
+        "is_growth": false,
+        "population": 10700556
+    },
+    "Чехия": {
+        "flag": "images/Чехия.png",
+        "is_growth": true,
+        "population": 10697858
+    },
+    "Швеция": {
+        "flag": "images/Швеция.png",
+        "is_growth": true,
+        "population": 10353442
+    },
+    "Португалия": {
+        "flag": "images/Португалия.png",
+        "is_growth": true,
+        "population": 10297081
+    },
+    "Венгрия": {
+        "flag": "images/Венгрия.png",
+        "is_growth": false,
+        "population": 9750149
+    },
+    "Белоруссия": {
+        "flag": "images/Белоруссия.png",
+        "is_growth": false,
+        "population": 9349645
+    },
+    "Австрия": {
+        "flag": "images/Австрия.png",
+        "is_growth": true,
+        "population": 8916864
+    },
+    "Швейцария": {
+        "flag": "images/Швейцария.png",
+        "is_growth": true,
+        "population": 8636561
+    },
+    "Болгария": {
+        "flag": "images/Болгария.png",
+        "is_growth": false,
+        "population": 6934015
+    },
+    "Сербия": {
+        "flag": "images/Сербия.png",
+        "is_growth": false,
+        "population": 6871547
+    },
+    "Дания": {
+        "flag": "images/Дания.png",
+        "is_growth": true,
+        "population": 5840045
+    },
+    "Финляндия": {
+        "flag": "images/Финляндия.png",
+        "is_growth": true,
+        "population": 5529543
+    },
+    "Словакия": {
+        "flag": "images/Словакия.png",
+        "is_growth": true,
+        "population": 5458827
+    },
+    "Норвегия": {
+        "flag": "images/Норвегия.png",
+        "is_growth": true,
+        "population": 5379475
+    },
+    "Ирландия": {
+        "flag": "images/Ирландия.png",
+        "is_growth": true,
+        "population": 4985674
+    },
+    "Хорватия": {
+        "flag": "images/Хорватия.png",
+        "is_growth": false,
+        "population": 4047260
+    },
+    "Босния и Герцеговина": {
+        "flag": "images/Босния и Герцеговина.png",
+        "is_growth": false,
+        "population": 3496157
+    },
+    "Албания": {
+        "flag": "images/Албания.png",
+        "is_growth": false,
+        "population": 2829741
+    },
+    "Литва": {
+        "flag": "images/Литва.png",
+        "is_growth": false,
+        "population": 2783483
+    },
+    "Молдавия": {
+        "flag": "images/Молдавия.png",
+        "is_growth": false,
+        "population": 2597107
+    },
+    "ДНР": {
+        "flag": "images/ДНР.png",
+        "is_growth": false,
+        "population": 2222866
+    },
+    "Словения": {
+        "flag": "images/Словения.png",
+        "is_growth": true,
+        "population": 2102419
+    },
+    "Северная Македония": {
+        "flag": "images/Северная Македония.png",
+        "is_growth": false,
+        "population": 2068808
+    },
+    "Латвия": {
+        "flag": "images/Латвия.png",
+        "is_growth": false,
+        "population": 1893223
+    },
+    "Республика Косово": {
+        "flag": "images/Республика Косово.png",
+        "is_growth": false,
+        "population": 1795367
+    },
+    "ЛНР": {
+        "flag": "images/ЛНР.png",
+        "is_growth": false,
+        "population": 1414680
+    },
+    "Эстония": {
+        "flag": "images/Эстония.png",
+        "is_growth": true,
+        "population": 1330068
+    },
+    "Люксембург": {
+        "flag": "images/Люксембург.png",
+        "is_growth": true,
+        "population": 630419
+    },
+    "Черногория": {
+        "flag": "images/Черногория.png",
+        "is_growth": false,
+        "population": 620739
+    },
+    "Мальта": {
+        "flag": "images/Мальта.png",
+        "is_growth": true,
+        "population": 515332
+    },
+    "Приднестровье": {
+        "flag": "images/Приднестровье.png",
+        "is_growth": false,
+        "population": 465200
+    },
+    "Исландия": {
+        "flag": "images/Исландия.png",
+        "is_growth": true,
+        "population": 366463
+    },
+    "Джерси": {
+        "flag": "images/Джерси.png",
+        "is_growth": "Стабильность",
+        "population": 107800
+    },
+    "Остров Мэн": {
+        "flag": "images/Остров Мэн.png",
+        "is_growth": "Стабильность",
+        "population": 83314
+    },
+    "Андорра": {
+        "flag": "images/Андорра.png",
+        "is_growth": true,
+        "population": 76860
+    },
+    "Гернси": {
+        "flag": "images/Гернси.png",
+        "is_growth": "Стабильность",
+        "population": 62792
+    },
+    "Фарерские острова": {
+        "flag": "images/Фарерские острова.png",
+        "is_growth": "Стабильность",
+        "population": 52909
+    },
+    "Лихтенштейн": {
+        "flag": "images/Лихтенштейн.png",
+        "is_growth": true,
+        "population": 38901
+    },
+    "Монако": {
+        "flag": "images/Монако.png",
+        "is_growth": true,
+        "population": 38300
+    },
+    "Сан-Марино": {
+        "flag": "images/Сан-Марино.png",
+        "is_growth": true,
+        "population": 34663
+    },
+    "Гибралтар": {
+        "flag": "images/Гибралтар.png",
+        "is_growth": "Стабильность",
+        "population": 34003
+    },
+    "Ватикан": {
+        "flag": "images/Ватикан.png",
+        "is_growth": false,
+        "population": 809
+    }
+}
