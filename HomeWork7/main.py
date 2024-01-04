@@ -19,6 +19,14 @@ try:
             print("Введите 9 для обновления количества мест во всех палатах")
             print("Введите 10 для обновления информации о пациенте")
             print("Введите 11 для обновления инофрмации о докторе у всех пациентов")
+            print("Введите 12 для удаления доктора")
+            print("Введите 13 для удаления всех докторов")
+            print("Введите 14 для удаления специализации")
+            print("Введите 15 для удаления всех специализаций")
+            print("Введите 16 для удаления палаты")
+            print("Введите 17 для удаления всех палат")
+            print("Введите 18 для удаления пациента")
+            print("Введите 19 для удаления всех пациентов")
             print("Введите 0 для выхода из программы: ")
             user_choice = input("Ваш выбор: ")
             match user_choice:
@@ -44,6 +52,22 @@ try:
                     patient.update_patient(cursor)
                 case "11":
                     patient.update_all_information_patients(cursor)
+                case "12":
+                    doctor.delete_doctor(cursor)
+                case "13":
+                    doctor.delete_all_doctors(cursor)
+                case "14":
+                    specialization.delete_specialization(cursor)
+                case "15":
+                    specialization.delete_all_specializations(cursor)
+                case "16":
+                    ward.delete_ward(cursor)
+                case "17":
+                    ward.delete_all_wards(cursor)
+                case "18":
+                    patient.delete_patient(cursor)
+                case "19":
+                    patient.delete_all_patients(cursor)
                 case "0":
                     quit()
 except Exception as error:

@@ -77,3 +77,28 @@ def update_all_information_patients(cursor):
             cursor.connection.commit()
         except Exception as e:
             print(e)
+
+
+def delete_patient(cursor):
+    print("----------------------------------")
+    show_patients(cursor)
+    print("----------------------------------")
+    patientId = input("Enter your patient id: ")
+    try:
+        query = "DELETE FROM patient WHERE id = %s"
+        values = patientId
+        cursor.execute(query, values)
+        cursor.connection.commit()
+    except Exception as e:
+        print(e)
+
+
+def delete_all_patients(cursor):
+    choose = int(input("Enter 1 for delete all record"))
+    if choose == 1:
+        try:
+            query = "DELETE FROM patient"
+            cursor.execute(query)
+            cursor.connection.commit()
+        except Exception as e:
+            print(e)

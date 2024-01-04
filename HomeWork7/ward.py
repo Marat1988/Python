@@ -47,3 +47,28 @@ def update_all_information_wards(cursor):
             cursor.connection.commit()
         except Exception as e:
             print(e)
+
+
+def delete_ward(cursor):
+    print("----------------------------------")
+    show_wards(cursor)
+    print("----------------------------------")
+    ward_id = int(input("Enter your ward id: "))
+    try:
+        query = "DELETE FROM ward WHERE id = %s"
+        values = ward_id
+        cursor.execute(query, values)
+        cursor.connection.commit()
+    except Exception as e:
+        print(e)
+
+
+def delete_all_wards(cursor):
+    choose = int(input("Enter 1 for delete all record"))
+    if choose == 1:
+        try:
+            query = "DELETE FROM ward"
+            cursor.execute(query)
+            cursor.connection.commit()
+        except Exception as e:
+            print(e)
