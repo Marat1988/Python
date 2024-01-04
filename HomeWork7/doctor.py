@@ -69,6 +69,24 @@ def update_all_information_doctors(cursor):
             print(e)
 
 
+def show_info_doctors_specialization(cursor):
+    try:
+        query = "SELECT fullname, specialization FROM vw_show_info_doctors"
+        cursor.execute(query)
+        print(*cursor)
+    except Exception as e:
+        print(e)
+
+
+def show_doctors_not_holiday(cursor):
+    try:
+        query = "SELECT lastname, salary FROM vw_show_info_doctors WHERE holiday = 0"
+        cursor.execute(query)
+        print(*cursor)
+    except Exception as e:
+        print(e)
+
+
 def delete_doctor(cursor):
     print("----------------------------------")
     show_doctors(cursor)

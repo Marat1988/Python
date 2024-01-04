@@ -27,6 +27,9 @@ try:
             print("Введите 17 для удаления всех палат")
             print("Введите 18 для удаления пациента")
             print("Введите 19 для удаления всех пациентов")
+            print("Введите 20 для вывода информации о врачей и их специализации")
+            print("Введите 21 для вывода фамилии и зарплаты врачей, которые не находятся в отпуске")
+            print("Введите 22 для вывода названия палат, которые заняты более чем на 80%")
             print("Введите 0 для выхода из программы: ")
             user_choice = input("Ваш выбор: ")
             match user_choice:
@@ -68,6 +71,12 @@ try:
                     patient.delete_patient(cursor)
                 case "19":
                     patient.delete_all_patients(cursor)
+                case "20":
+                    doctor.show_info_doctors_specialization(cursor)
+                case "21":
+                    doctor.show_doctors_not_holiday(cursor)
+                case "22":
+                    ward.show_info_words(cursor, 80)
                 case "0":
                     quit()
 except Exception as error:

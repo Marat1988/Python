@@ -49,6 +49,16 @@ def update_all_information_wards(cursor):
             print(e)
 
 
+def show_info_words(cursor, percent):
+    try:
+        query = "SELECT number AS name_ward FROM vw_show_info_wards WHERE percent > %s"
+        values = percent
+        cursor.execute(query, values)
+        print(*cursor)
+    except Exception as e:
+        print(e)
+
+
 def delete_ward(cursor):
     print("----------------------------------")
     show_wards(cursor)

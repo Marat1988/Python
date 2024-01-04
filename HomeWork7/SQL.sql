@@ -56,10 +56,13 @@ INSERT INTO specialization (name)
 VALUES ('Хирург');
 
 INSERT INTO ward (number, places)
-VALUES (13, 7);
+VALUES (13, 6);
 
 INSERT INTO doctor (firstname, lastname, salary, holiday, specializationId)
 VALUES ('Марат', 'Тухтаров', 1000000, 0, 1);
+
+INSERT INTO doctor (firstname, lastname, salary, holiday, specializationId)
+VALUES ('Иван', 'Иванов', 1000000, 1, 1);
 
 INSERT INTO patient (firstname, lastname, receiptdate, wardId, doctorId, diagnosis)
 VALUES ('Максим', 'Пономаренко', DATE_ADD(NOW(), INTERVAL 1 DAY), 1, 1, 'Перелом руки');
@@ -86,16 +89,30 @@ FOR EACH ROW
 BEGIN
     DECLARE total_places INT;
     DECLARE occupied_places INT;
-    
+
     -- Получаем общее количество мест в палате
     SELECT places INTO total_places FROM ward WHERE id = NEW.wardId;
-    
+
     -- Получаем количество занятых мест в палате
     SELECT COUNT(*) INTO occupied_places FROM patient WHERE wardId = NEW.wardId;
-    
+
     -- Проверяем, есть ли свободные места
     IF occupied_places >= total_places THEN
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'All places in the ward are occupied.';
     END IF;
 END$$
 DELIMITER ;
+
+/*Вьюшки*/
+CREATE VIEW vw_show_info_doctors
+AS
+SELECT CONCAT(d.firstname, ' ', d.lastname) AS fullname, d.lastname, s.name AS specialization,  d.salary, d.holiday
+FROM doctor d
+INNER JOIN specialization s ON d.specializationId=s.id;
+
+CREATE VIEW vw_show_info_wards
+AS
+SELECT w.number, SUM(IF(p.id IS NULL, 0, 1)) AS CountPatients, (SUM(IF(p.id IS NULL, 0, 1))*100.0)/w.places AS percent
+FROM ward w
+LEFT JOIN patient p ON w.id=p.wardId
+GROUP BY w.number;
