@@ -1,0 +1,40 @@
+body{
+    background-color: blue;
+}
+
+a{
+    background-color: black;
+    color: aqua;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 25px;
+    transition: 1s;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+a:hover{
+    background-color: aqua;
+    color: black;
+}
+nav {
+    display: flex;
+
+}
+
+header{
+    background-color: aqua;
+    height: 100px;
+}
+
+#logo{
+    height: 100px;
+}
+
+h1{
+    color: aqua;
+}
+
+p, li{
+    font-size: 25px;
+    color: #ddff00
+}

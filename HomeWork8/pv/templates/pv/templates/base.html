@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title%} default title {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/company_style.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="{% static 'img/kaliningrad-logo-en.jpg' %}" alt="logo" id="logo">
+
+            <a href="{% url 'home' %}" class="menu_btn">Главная</a>
+            <a href="{% url 'news' %}" class="menu_btn">Новости города</a>
+            <a href="{% url 'boss' %}" class="menu_btn">Руководство города</a>
+            <a href="{% url 'facts' %}" class="menu_btn">Факты о городе</a>
+            <a href="{% url 'contacts' %}" class="menu_btn">Контактные телефоны городских служб</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>{% block header_name %}default main{% endblock %}</h1>
+    </main>
+
+    <p>{% block information %}{% endblock %}</p>
+
+    <script src="{% static 'js/city.js' %}"></script>
+</body>
+</html>
