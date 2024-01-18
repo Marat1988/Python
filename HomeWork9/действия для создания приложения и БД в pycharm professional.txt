@@ -1,0 +1,11 @@
+действия для создания приложения и БД в pycharm professional
+
+1. При создании проекта выбрать шаблон django.
+2. В созданном проекте в терминале написать python manage.py startapp projectname для создания проекта.
+3. В settings в installed_apps прописать созданное приложение.
+4. В models создать таблицу.
+5. В терминале прописать python manage.py makemigrations
+6. В терминале прописать python manage.py migrate
+
+Далее работать в файлах urls и views внутри приложения.
+Структуру расположения файлов html, css, js смотрите в архиве проекта тут.

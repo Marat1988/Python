@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Формa для заказа воды</title>
+    <link rel="stylesheet" href="{% static 'css/css.css' %}">
+</head>
+<body>
+    <form action="" method="post" id="simple_numbers">
+        <div class="main">
+            <div class="row">
+                {% csrf_token %}
+            </div>
+            <div class="row">
+                <label for="firstname">Имя:</label>
+                <label>
+                    <input type="text" class="number_info" name="firstname" required/>
+                </label>
+            </div>
+            <div class="row">
+                <label for="lastname">Фамилия:
+                    <input type="text" class="number_info" name="lastname" required>
+                </label>
+            </div>
+            <div class="row">
+                <label for="phone">Телефон:
+                    <input type="tel" id="phone" name="phone" pattern="[+][7][0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="например +7967-567-5675" required>
+                </label>
+            </div>
+            <div class="row">
+                <label for="address">Адрес:
+                    <input type="text" class="number_info" name="address" required>
+                </label>
+            </div>
+            <div class="row">
+                <label for="monthCount">Количество месяцев доставки воды:
+                    <input type="number" class="number_info" name="monthCount" min="1" max="10" value="1" required>
+                </label>
+            </div>
+            <div class="row">
+                <label for="monthCount">Объем балонов воды (в литрах):
+                    <input type="number" class="number_info" name="capacity" min="1" max="10" value="1" required>
+                </label>
+            </div>
+            <input type="submit" value="Отправить заказ" class="number_info" name="submit_btn" >
+        </div>
+    </form>
+    {% if order %}
+        <h1>Ваш заказ принят</h1>
+        <p>Имя: {{ order.firstname }}</p>
+        <p>Фамилия: {{ order.lastname }}</p>
+        <p>Телефон: {{ order.phone }}</p>
+        <p>Адрес: {{ order.address }}</p>
+        <p>Количество месяцев доставки: {{ order.monthCount }}</p>
+        <p>Объем баллона воды: {{ order.capacity }}</p>
+    {% endif %}
+</body>
+</html>
