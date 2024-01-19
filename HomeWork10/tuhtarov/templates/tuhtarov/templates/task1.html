@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание1</title>
+</head>
+<body>
+<form action="" method="post">
+    {% csrf_token %}
+    <p>
+        <label for="number1">Введите первое число</label>
+        <input type="number" name="number1" id="number1" min="1" max="99" value="1" required>
+    </p>
+    <p>
+        <label for="number2">Введите второе число</label>
+        <input type="number" name="number2" id="number2" min="1" max="99" value="1" required>
+    </p>
+    <p>
+        <label for="number3">Введите третье число</label>
+        <input type="number" name="number3" id="number3" min="3" max="99" value="1" required>
+    </p>
+    <input type="submit" value="Отправить">
+</form>
+
+<div>
+    {{ result }}
+</div>
+
+
+
+</body>
+</html>
