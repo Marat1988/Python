@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск ресторанов</title>
+    <link rel="stylesheet" href="{% static 'css/css.css' %}">
+</head>
+<body>
+<form action="" method="get">
+    <div class="main">
+        <div class="row">
+            <label for="specialization">Введите специализацию</label>
+            <select name="specialization" id="specialization" >
+                <option value="Итальянский">Итальянский</option>
+                <option value="Русский">Русский</option>
+                <option value="Китайский">Китайский</option>
+            </select>
+        </div>
+        <input type="submit" value="Поиск">
+    </div>
+</form>
+
+{% if restaurants %}
+    <h1>Результаты поиска</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Название</th>
+                <th>Специализация</th>
+                <th>Адрес</th>
+                <th>Сайт</th>
+                <th>Телефон</th>
+                <th>Удаление</th>
+                <th>Редактирование</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for item in restaurants %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.specialization }}</td>
+                <td>{{ item.address }}</td>
+                <td>{{ item.site }}</td>
+                <td>{{ item.telephone }}</td>
+                <td><a href="delete/{{ item.id }}">Удалить</a></td>
+                <td><a href="edit/{{ item.id }}">Изменить</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+<ul>
+    <li><a href="{% url 'index' %}">На главную страницу</a></li>
+</ul>
+
+
+</body>
+</html>

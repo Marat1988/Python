@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование ресторана</title>
+    <link rel="stylesheet" href="{% static 'css/css.css' %}">
+</head>
+<body>
+<form action="/change_restaurant/{{ restaurant.id }}" method="post">
+    {% csrf_token %}
+    <div class="main">
+        <div class="row">
+            <label for="name">Введите новое название ресторана</label>
+            <input type="text" name="name" id="name" value="{{ restaurant.name }}" required>
+        </div>
+        <div class="row">
+            <label for="specialization">Введите новую специализацию ресторана</label>
+            <select name="specialization" id="specialization" >
+                <option value="Итальянский">Итальянский</option>
+                <option value="Русский">Русский</option>
+                <option value="Китайский">Китайский</option>
+            </select>
+        </div>
+        <div class="row">
+            <label for="address">Введите новый адрес</label>
+            <input type="text" name="address" id="address" value="{{ restaurant.address }}" required>
+        </div>
+        <div class="row">
+            <label for="site">Введите новый сайт</label>
+            <input type="url" name="site" id="site" value="{{ restaurant.site }}" required>
+        </div>
+        <div class="row">
+            <label for="telephone">Введите новый телефон</label>
+            <input type="tel" name="telephone" id="telephone"   value="{{ restaurant.telephone }}"  pattern="[+][7][0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Формат ввода номера, например +7567-456-5675" required>
+        </div>
+        <input type="submit" value="Редактировать">
+    </div>
+</form>
+<ul>
+    <li><a href="{% url 'all' %}">Отображение всех ресторанов</a></li>
+</ul>
+</body>
+</html>

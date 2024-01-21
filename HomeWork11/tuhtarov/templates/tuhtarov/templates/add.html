@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление ресторана</title>
+    <link rel="stylesheet" href="{% static 'css/css.css' %}">
+</head>
+<body>
+<h1>Добавление ресторана</h1>
+<form method="post" action="">
+    {% csrf_token %}
+    <div class="main">
+        <div class="row">
+            <label for="name">Название ресторана</label>
+            <input type="text" name="name" id="name" required>
+        </div>
+        <div class="row">
+            <label for="specialization">Специализация ресторана</label>
+            <select name="specialization" id="specialization">
+                <option value="Итальянский">Итальянский</option>
+                <option value="Русский">Русский</option>
+                <option value="Китайский">Китайский</option>
+            </select>
+        </div>
+        <div class="row">
+            <label for="address">Адрес</label>
+            <input type="text" name="address" id="address" required>
+        </div>
+        <div class="row">
+            <label for="site">Сайт</label>
+            <input type="url" name="site" id="site" required>
+        </div>
+        <div class="row">
+            <label for="telephone">Телефон</label>
+            <input type="tel" name="telephone" id="telephone" pattern="[+][7][0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Формат ввода номера, например +7567-456-5675" required>
+        </div>
+        <input type="submit" value="Добавить">
+    </div>
+</form>
+    {% if restaurant %}
+        <h1>Вы добавили новый ресторан</h1>
+        <h2>Данные</h2>
+        <p>Название ресторана: {{ restaurant.name }}</p>
+        <p>Специализация ресторана: {{ restaurant.specialization }}</p>
+        <p>Адрес ресторана: {{ restaurant.address }}</p>
+        <p>Сайт ресторана: {{ restaurant.site }}</p>
+        <p>Телефон ресторана: {{ restaurant.telephone }}</p>
+    {% endif %}
+<ul>
+    <li><a href="{% url 'all' %}">Отображение всех ресторанов</a></li>
+</ul>
+</body>
+</html>
