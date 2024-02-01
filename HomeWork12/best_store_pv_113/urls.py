@@ -32,9 +32,10 @@ urlpatterns = [
     re_path(r'^buyer-info/?$', views.buyer_info, name="buyer-info"),
     path('edit_buyer/<int:id>', views.edit_buyer, name="edit_buyer"),
 
-
-
-
+    path('del_product/<int:id>', views.del_product, name="del_product"),
+    path('change_product/<int:id>', views.change_product, name="change_product"),
+    re_path(r'^product-info/?$', views.product_info, name="product-info"),
+    path('edit_product/<int:id>', views.edit_product, name="edit_product"),
 
     re_path(r'^store-info/?$', views.store_info, name="store-info"),
 

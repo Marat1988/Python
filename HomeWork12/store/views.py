@@ -5,65 +5,6 @@ from django.shortcuts import render, HttpResponse
 from store.models import Seller, Buyer, Product, SoldInfo
 
 
-# vasya = Buyer(
-#     firstname="Vasya",
-#     lastname="Vasin",
-#     phone="89654613",
-#     email="vasya@avsa.rt"
-# )
-# vasya.save()
-#
-# petya = Seller(
-#     firstname="Petya",
-#     lastname="Petin",
-#     phone="87694654631",
-#     email="pet@sadf.er",
-#     start_date="2023-12-12",
-#     vacancy="seller"
-# )
-# petya.save()
-#
-# pen = Product(
-#     name="Black pen",
-#     price=100500,
-#     description="best pen in the world!",
-#     storage_amount=20
-# )
-# pen.save()
-
-# print(len(Buyer.objects.all()))
-
-# for i in Buyer.objects.all():
-#     print(i.firstname, i.lastname)
-
-
-# vasya = Buyer.objects.get(id=1)
-# petya = Seller.objects.get(id=1)
-# pen = Product.objects.get(id=1)
-#
-# current_sold = SoldInfo(
-#     buyer=vasya,
-#     seller=petya,
-#     product=pen,
-#     sold_date="2023-12-15",
-#     sold_price=100500,
-#     product_amount=2
-# )
-# current_sold.save()
-
-
-# for i in SoldInfo.objects.all():
-#     print(i.buyer.firstname, i.seller.firstname, i.product.name, i.product_amount * i.sold_price)
-#
-# vasya = Buyer.objects.get(id=1)
-# vasya.firstname = "Anna"
-# vasya.save()
-#
-# for i in SoldInfo.objects.all():
-#     print(i.buyer.firstname, i.seller.firstname, i.product.name, i.product_amount * i.sold_price)
-#
-
-
 def index(request):
     return render(request, "store/templates/index.html")
 
@@ -192,5 +133,51 @@ def change_buyer(request, id):
         print(a)
     return HttpResponseRedirect(redirect_to="/buyer-info/")
 
+
 # -------------------------------------------------------------------------#
 
+def product_info(request):
+    product = request.POST
+    if product:
+        try:
+            product_new = Product.objects.create(name=product["name"],
+                                                 description=product["description"],
+                                                 price=product["price"],
+                                                 storage_amount=product["storage_amount"])
+            product_new.save()
+        except:
+            pass
+    products = Product.objects.all()
+    return render(request,
+                  "store/templates/product-info.html",
+                  context={"product_info": products})
+
+
+def del_product(request, id):
+    try:
+        delete_product = Product.objects.get(id=id)
+        delete_product.delete()
+    except:
+        pass
+    return HttpResponseRedirect(redirect_to="/product-info/")
+
+
+def edit_product(request, id):
+    try:
+        product = Product.objects.get(id=id)
+        return render(request, "store/templates/product_edit.html", context={"product": product})
+    except:
+        return HttpResponseRedirect(redirect_to="/product-info/")
+
+
+def change_product(request, id):
+    try:
+        product = Product.objects.get(id=id)
+        product.name = request.POST.get("name", "")
+        product.description = request.POST.get("description", "")
+        product.price = request.POST.get("price", "")
+        product.storage_amount = request.POST.get("storage_amount", "")
+        product.save()
+    except Exception as a:
+        print(a)
+    return HttpResponseRedirect(redirect_to="/product-info/")

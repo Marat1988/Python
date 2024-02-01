@@ -1,10 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'store/templates/base.html'%}
+{% block title %}buyer edit{% endblock %}
+{% block main %}
+    <h2>Форма изменения товара</h2>
+    <form action="/change_product/{{ product.id }}" method="post">
+        {% csrf_token %}
+    
+        <div class="form-group">
+            <label for="name">Введите новое название</label>
+            <input type="text" name="name" id="name"  value="{{ product.name }}" required>
+        </div>
+    
+        <div class="form-group">
+            <label for="description">Введите новое описание</label>
+            <input type="text" name="description" id="description" value="{{ product.description }}" required>
+        </div>
+    
+        <div class="form-group">
+            <label for="price">Введите новую цену</label>
+            <input type="number" name="price" id="price" value="{{ product.price }}" required>
+        </div>
+    
+        <div class="form-group">
+            <label for="storage_amount">Введите новое количество</label>
+            <input type="number" name="storage_amount" id="storage_amount" value="{{ product.storage_amount }}"  required>
+        </div>
+        
+        <input type="submit" value="Отправить">
+    </form>
+    
+{% endblock %}
