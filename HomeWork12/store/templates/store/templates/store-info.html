@@ -1,0 +1,77 @@
+{% extends 'store/templates/base.html'%}
+{% block title %}store info{% endblock %}
+{% block main %}
+    <table class="main_table">
+        <thead>
+            <tr>
+                <td>Имя покупателя</td>
+                <td>Телефон Покупателя</td>
+                <td>Имя Продавца</td>
+                <td>Телефон продавца</td>
+                <td>Должность продавца</td>
+                <td>Название товара</td>
+                <td>Цена товара</td>
+                <td>Количество шт.</td>
+                <td>Дата продажи</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in sold_info %}
+            <tr>
+                <td>{{ i.buyer.firstname }} {{ i.buyer.lastname }}</td>
+                <td>{{ i.buyer.phone }}</td>
+                <td>{{ i.seller.firstname }}</td>
+                <td>{{ i.seller.phone }}</td>
+                <td>{{ i.seller.vacancy }}</td>
+                <td>{{ i.product.name }}</td>
+                <td>{{ i.sold_price }}</td>
+                <td>{{ i.product_amount }}</td>
+                <td>{{ i.sold_date}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h2>Форма добавления продажи</h2>
+    <form action="" method="post">
+    {% csrf_token %}
+    
+        <div class="form-group">
+            <label for="buyer">Выберите покупателя</label>
+            <select name="buyer" id="buyer">
+                {% for i in all_buyers %}
+                    <option value="{{ i.id }}">{{ i.firstname }} {{ i.lastname }} {{ i.phone }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    
+        <div class="form-group">
+            <label for="seller">Выберите продавца</label>
+            <select name="seller" id="seller">
+                {% for i in all_sellers %}
+                    <option value="{{ i.id }}">{{ i.firstname }} {{ i.lastname }} {{ i.phone }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    
+        <div class="form-group">
+            <label for="product">Выберите товар</label>
+            <select name="product" id="product">
+            {% for i in all_products %}
+                <option value="{{ i.id }}">{{ i.name }} {{ i.price }}</option>
+            {% endfor %}
+            </select>
+        </div>
+    
+        <div class="form-group">
+            <label for="price">Введите цену</label>
+            <input type="number" name="price" id="price" required min="0">
+        </div>
+    
+        <div class="form-group"> 
+            <label for="product_amount">Введите количество штук</label>
+            <input type="number" name="product_amount" id="product_amount" required min="0">
+        </div>
+    
+        <input type="submit" value="Отправить">
+    </form>
+{% endblock %}

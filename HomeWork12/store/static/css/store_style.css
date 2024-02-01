@@ -1,0 +1,45 @@
+/*nav {*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    width: 75%;*/
+/*    background-color: aqua;*/
+/*}*/
+/*.main_menu_btn {*/
+/*    background-color: aqua;*/
+/*    padding: 5px;*/
+/*    font-size: 20px;*/
+/*    text-decoration: none;*/
+/*    color: black;*/
+/*    text-align: center;*/
+/*}*/
+/*.main_menu_btn:hover {*/
+/*    background-color: black;*/
+/*    color: aqua;*/
+/*    transition: 1s;*/
+/*}*/
+
+table{
+    border-collapse: collapse;
+    border: 1px solid gray;
+}
+
+th, td{
+    border: 1px solid red;
+}
+
+form{
+    width: 50%;
+}
+
+.form-group {
+  margin-bottom: 10px;
+  display: flex;
+}
+
+label {
+    flex: 1;
+}
+
+input, select {
+    flex: 5;
+}

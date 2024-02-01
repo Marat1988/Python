@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/store_style.css' %}">
+    <title>Стартовая страница</title>
+</head>
+<body>
+<h1>Стартовая страница</h1>
+<ul>
+    <li><a href="{% url "store-info"%}">Информация о продажах</a></li>
+    <li><a href="{% url "seller-info"%}">Информация о продавцах</a></li>
+    <li><a href="{% url "buyer-info"%}">Информация о покупателях</a></li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+{% extends 'store/templates/base.html'%}
+{% block title %}store info{% endblock %}
+{% block main %}
+    <h2>Форма изменения продавца</h2>
+    <form action="/change_buyer/{{ buyer.id }}" method="post">
+        {% csrf_token %}
+    
+        <div class="form-group">
+            <label for="firstname">Введите новую фамилию</label>
+            <input type="text" name="firstname" id="firstname"  value="{{ buyer.firstname }}" required>
+        </div>
+    
+        <div class="form-group">
+            <label for="lastname">Введите новое имя</label>
+            <input type="text" name="lastname" id="lastname" value="{{ buyer.lastname }}" required>
+        </div>
+    
+        <div class="form-group">
+            <label for="phone">Введите новый телефон</label>
+            <input type="tel" name="phone" id="phone" pattern="[+][7][0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Формат ввода номера, например +7567-456-5675" value="{{ buyer.phone }}" required>
+        </div>
+    
+        <div class="form-group">
+            <label for="email">Введите новую почту</label>
+            <input type="email" name="email" id="email" value="{{ buyer.email }}"  required>
+        </div>
+        
+        <input type="submit" value="Отправить">
+    </form>
+    
+{% endblock %}

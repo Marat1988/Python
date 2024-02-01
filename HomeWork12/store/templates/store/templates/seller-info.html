@@ -1,0 +1,74 @@
+{% extends 'store/templates/base.html'%}
+{% block title %}store info{% endblock %}
+{% block main %}
+    <table class="main_table">
+        <thead>
+            <tr>
+                <td>Фамилия</td>
+                <td>Имя</td>
+                <td>Телефон</td>
+                <td>Почта</td>
+                <td>Дата начала работы</td>
+                <td>Вакансия</td>
+                <td>Изменить</td>
+                <td>Удалить</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in seller_info %}
+            <tr>
+                <td>{{ i.firstname }}</td>
+                <td>{{ i.lastname }}</td>
+                <td>{{ i.phone }}</td>
+                <td>{{ i.email }}</td>
+                <td>{{ i.start_date }}</td>
+                <td>{{ i.vacancy }}</td>
+                <td><a href="/edit_seller/{{ i.id }}">Изменить</a></td>
+                <td><a href="/del_seller/{{ i.id }}">Удалить</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <h2>Форма добавления продавца</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+    
+        <div class="form-group">
+            <label for="firstname">Фамилия</label>
+            <input type="text" name="firstname" id="firstname" required>
+        </div>
+    
+        <div class="form-group">
+            <label for="lastname">Имя</label>
+            <input type="text" name="lastname" id="lastname" required>
+        </div>
+    
+        <div class="form-group">
+            <label for="phone">Телефон</label>
+            <input type="tel" name="phone" id="phone" pattern="[+][7][0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Формат ввода номера, например +7567-456-5675" required>
+        </div>
+    
+        <div class="form-group">
+            <label for="email">Почта</label>
+            <input type="email" name="email" id="email" required>
+        </div>
+    
+        <div class="form-group">
+            <label for="start_date">Дата начало работы</label>
+            <input type="date" name="start_date" id="email" required>
+        </div>
+    
+        <div class="form-group">
+            <label for="vacancy">Вакансия</label>
+            <select name="vacancy" id="vacancy">
+                <option value="seller">Продавец</option>
+                <option value="chef seller">Старший продавец</option>
+                <option value="sold department manager">Менеджер отдела продаж</option>
+            </select>
+        </div>
+        
+        <input type="submit" value="Отправить">
+    </form>
+    
+{% endblock %}

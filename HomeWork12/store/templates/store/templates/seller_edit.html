@@ -1,0 +1,60 @@
+{% extends 'store/templates/base.html'%}
+{% block title %}store info{% endblock %}
+{% block main %}
+    <h2>Форма изменения продавца</h2>
+    <form action="/change_seller/{{ seller.id }}" method="post">
+        {% csrf_token %}
+    
+        <div class="form-group">
+            <label for="firstname">Введите новую фамилию</label>
+            <input type="text" name="firstname" id="firstname"  value="{{ seller.firstname }}" required>
+        </div>
+    
+        <div class="form-group">
+            <label for="lastname">Введите новое имя</label>
+            <input type="text" name="lastname" id="lastname" value="{{ seller.lastname }}" required>
+        </div>
+    
+        <div class="form-group">
+            <label for="phone">Введите новый телефон</label>
+            <input type="tel" name="phone" id="phone" pattern="[+][7][0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Формат ввода номера, например +7567-456-5675" value="{{ seller.phone }}" required>
+        </div>
+    
+        <div class="form-group">
+            <label for="email">Введите новую почту</label>
+            <input type="email" name="email" id="email" value="{{ seller.email }}"  required>
+        </div>
+
+    
+        <div class="form-group">
+            <label for="start_date">Введите новое дата начало</label>
+            <input type="date" name="start_date" id="start_date" value="{{ seller.start_date }}" required>
+        </div>
+    
+        <div class="form-group">
+            <label for="vacancy">Введите новую вакансию</label>
+            <select name="vacancy" id="vacancy">
+                {% if seller.vacancy == 'seller' %}
+                    <option value="seller" selected>Продавец</option>
+                {% else %}
+                    <option value="seller">Продавец</option>
+                {% endif %}
+            
+                {% if seller.vacancy == 'chef seller' %}
+                    <option value="chef seller" selected>Старший продавец</option>
+                {% else %}
+                    <option value="chef seller">Старший продавец</option>
+                {% endif %}
+            
+                {% if seller.vacancy == 'sold department manager' %}
+                    <option value="sold department manager" selected>Менеджер отдела продаж</option>
+                {% else %}
+                    <option value="sold department manager">Менеджер отдела продаж</option>
+                {% endif %}
+            </select>
+        </div>
+        
+        <input type="submit" value="Отправить">
+    </form>
+    
+{% endblock %}
